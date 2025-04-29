@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
@@ -23,36 +16,30 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import ScaleBox from './src/components/ScaleBox';
+import BouncingBall from './src/components/Bouncing';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
+import Index from './src/components/Index';
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+import SpinningBox from './src/components/SpinningBox';
+import PulseCircle from './src/components/PulseCircle';
+import SlideInBox from './src/components/SlideInBox';
+import Fade from './src/components/Fade';
+import ColorFadeBox from './src/components/ColorFadeBox';
+import FlipCard from './src/components/FlipCard';
+import WobbleBox from './src/components/WobbleBox';
+import JumpingBox from './src/components/JumpingBox';
+import BreathingCircle from './src/components/BreathingCircle';
+import RippleEffect from './src/components/RippleEffect';
+import ShakeBox from './src/components/ShakeBox';
+import ParallaxScroll from './src/components/ParallaxScroll';
+import FallingStars from './src/components/FallingStars';
+import TypingEffect from './src/components/TypingEffect';
+import ExplosionBox from './src/components/ExplosionBox';
+import LoadingDots from './src/components/LoadingDots';
 
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
+const Stack = createNativeStackNavigator();
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -61,71 +48,32 @@ function App(): React.JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  /*
-   * To keep the template simple and small we're adding padding to prevent view
-   * from rendering under the System UI.
-   * For bigger apps the recommendation is to use `react-native-safe-area-context`:
-   * https://github.com/AppAndFlow/react-native-safe-area-context
-   *
-   * You can read more about it here:
-   * https://github.com/react-native-community/discussions-and-proposals/discussions/827
-   */
-  const safePadding = '5%';
-
   return (
-    <View style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        style={backgroundStyle}>
-        <View style={{paddingRight: safePadding}}>
-          <Header/>
-        </View>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-            paddingHorizontal: safePadding,
-            paddingBottom: safePadding,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Index">
+        <Stack.Screen name='Index' component={Index} options={{headerShown: false}} />
+        <Stack.Screen name="Fade" component={Fade} />
+        <Stack.Screen name="ScaleBox" component={ScaleBox} />
+        <Stack.Screen name="BouncingBall" component={BouncingBall} />
+        <Stack.Screen name='SpinningBox' component={SpinningBox} />
+        <Stack.Screen name='PulseCircle' component={PulseCircle} />
+        <Stack.Screen name='SlideInBox' component={SlideInBox} />
+        <Stack.Screen name='ColorFadeBox' component={ColorFadeBox}/>
+        <Stack.Screen name='FlipCard' component={FlipCard} />
+        <Stack.Screen name='WobbleBox' component={WobbleBox} />
+        <Stack.Screen name='JumpingBox' component={JumpingBox}/>
+        <Stack.Screen name='BreathingCircle' component={BreathingCircle}/>
+        <Stack.Screen name='RippleEffect' component={RippleEffect} />
+        <Stack.Screen name='ShakeBox' component={ShakeBox} />
+        <Stack.Screen name='ParallaxScroll' component={ParallaxScroll} />
+        <Stack.Screen name='FallingStars' component={FallingStars} />
+        <Stack.Screen name='TypingEffect' component={TypingEffect}/>
+        <Stack.Screen name='ExplosionBox' component={ExplosionBox}/>
+        <Stack.Screen name='LoadingDots' component={LoadingDots} />
+       </Stack.Navigator>
+      
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;
