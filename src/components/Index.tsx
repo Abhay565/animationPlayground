@@ -31,6 +31,11 @@ const Index = () => {
     {id: 17, screenName: 'TypingEffect'},
     {id: 18, screenName: 'ExplosionBox'},
     {id:19, screenName:"LoadingDots"},
+    {id:20, screenName:"FadeInView"},
+    {id:21,screenName: "WaveMotionBox"},
+    {id:22,screenName:"SkeletonLoader"},
+    {id:23,screenName:"LinkedinLoader"},
+ {id:24, screenName: "LinkedinSkeleton"},
   ];
 
   return (

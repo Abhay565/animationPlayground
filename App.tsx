@@ -38,6 +38,11 @@ import FallingStars from './src/components/FallingStars';
 import TypingEffect from './src/components/TypingEffect';
 import ExplosionBox from './src/components/ExplosionBox';
 import LoadingDots from './src/components/LoadingDots';
+import FadeInView from './src/components/FadeInView';
+import WaveMotionBox from './src/components/WaveMotionBox';
+import SkeletonLoader from './src/components/SkeletonLoader';
+import LinkedinLoader from './src/components/LinkedinLoader';
+import LinkedinSkeleton from './src/components/LinkIdinSkeleton';
 
 const Stack = createNativeStackNavigator();
 
@@ -70,6 +75,11 @@ function App(): React.JSX.Element {
         <Stack.Screen name='TypingEffect' component={TypingEffect}/>
         <Stack.Screen name='ExplosionBox' component={ExplosionBox}/>
         <Stack.Screen name='LoadingDots' component={LoadingDots} />
+        <Stack.Screen name='FadeInView' component={FadeInView} />
+        <Stack.Screen name='WaveMotionBox' component={WaveMotionBox} />
+        <Stack.Screen  name='SkeletonLoader' component={SkeletonLoader} />
+        <Stack.Screen name='LinkedinLoader' component={LinkedinLoader} />
+        <Stack.Screen name='LinkedinSkeleton' component={LinkedinSkeleton} />
        </Stack.Navigator>
       
     </NavigationContainer>
